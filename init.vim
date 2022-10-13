@@ -1,15 +1,14 @@
 lua require('core.init')
 
 set clipboard^=unnamed,unnamedplus
-
+set termguicolors
 if has('unix')
 	set thesaurus+=/usr/share/dict/words
 endif
-
 if exists("g:neovide")
     " Neovide config
 	let g:neovide_refresh_rate=24	" come on it's just a text editor
-	let g:neovide_transparency=1.0
+	let g:neovide_transparency=0.0
 	let g:neovide_scroll_animation_length = 0.3
 	let g:neovide_remember_window_size = v:true
 	let g:neovide_input_use_logo=v:true	" the super/command/win key

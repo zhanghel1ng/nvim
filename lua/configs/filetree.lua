@@ -1,7 +1,8 @@
 local M = {}
+
 function M.config()
 	-- nvim-tree config
-	require 'nvim-tree'.setup {
+	require ('nvim-tree').setup ({
 		disable_netrw        = true,
 		hijack_netrw         = true,
 		open_on_setup        = true,
@@ -39,7 +40,7 @@ function M.config()
 		},
 		view                 = {
 			width = 30,
-			height = 30,
+--			height = 30,
 			hide_root_folder = false,
 			side = 'left',
 			mappings = {
@@ -62,7 +63,7 @@ function M.config()
 				quit_on_open = false,
 			}
 		}
-	}
+	})
 	vim.cmd([[
     let g:nvim_tree_icons = {
         \ 'default': '',

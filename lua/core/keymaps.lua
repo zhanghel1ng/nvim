@@ -1,88 +1,28 @@
-local function set_bg_light()
-	vim.cmd('set background=light')
-	local colors_name = vim.g.colors_name
-	vim.cmd('colorscheme shine')
-	vim.cmd('colorscheme ' .. colors_name)
-end
+vim.g.mapleader = ' '
+-- base opration
+vim.keymap.set('i','jj','<ESC>')
+vim.keymap.set('n','L','$')
+vim.keymap.set('n','H','^')
+vim.keymap.set('n','<leader>wc','<c-w>c')
+vim.keymap.set('n','<leader>wh','<c-w>h')
+vim.keymap.set('n','<leader>wj','<c-w>j')
+vim.keymap.set('n','<leader>wk','<c-w>k')
+vim.keymap.set('n','<leader>wl','<c-w>l')
 
-local function set_bg_dark()
-	vim.cmd('set background=dark')
-	local colors_name = vim.g.colors_name
-	vim.cmd('colorscheme ron')
-	vim.cmd('colorscheme ' .. colors_name)
-end
-
-vim.g.mapleader = ';'
-
--- keymaps
-vim.keymap.set('i', '<C-g>', '<esc>')
-vim.keymap.set('i', '<C-;>', '::') -- for C++ and Rust
-vim.keymap.set('n', '<leader>vl', set_bg_light)
-vim.keymap.set('n', '<leader>vd', set_bg_dark)
-vim.keymap.set('n', '<leader>', ':')
--- f: file tree
-vim.keymap.set('n', '<F3>', ':NvimTreeToggle<cr>')
-vim.keymap.set('n', '<leader>ft', ':NvimTreeToggle<cr>')
-vim.keymap.set('n', '<leader>ff', ':NvimTreeFocus<cr>')
--- y: telescope
-vim.keymap.set('n', '<F9>', function() require 'telescope.builtin'.find_files {} end)
-vim.keymap.set('n', '<F10>', function() require 'telescope.builtin'.git_files {} end)
-vim.keymap.set('n', '<F11>', function() require 'telescope.builtin'.buffers {} end)
-vim.keymap.set({ 'n', 'i' }, '<C-p>', function() require 'telescope.builtin'.registers {} end)
--- w: window
-vim.keymap.set('n', '<leader>w1', '<c-w>o')
-vim.keymap.set('n', '<leader>wx', ':x<cr>')
-vim.keymap.set('n', '<leader>w2', ':sp<cr>')
-vim.keymap.set('n', '<leader>w3', ':vs<cr>')
--- window resize
-vim.keymap.set('n', '<m-9>', '<c-w><')
-vim.keymap.set('n', '<m-0>', '<c-w>>')
-vim.keymap.set('n', '<m-->', '<c-w>-')
-vim.keymap.set('n', '<m-=>', '<c-w>+')
 -- b: buffer
 vim.keymap.set('n', '<leader>bn', ':bn<cr>')
 vim.keymap.set('n', '<leader>bp', ':bp<cr>')
 vim.keymap.set('n', '<leader>bd', ':Bdelete<cr>')
--- p: plugins
-vim.keymap.set('n', '<leader>pi', ':PackerInstall<cr>')
-vim.keymap.set('n', '<leader>pc', ':PackerClean<cr>')
--- s: search
-vim.keymap.set('n', '<leader>ss', '/')
-vim.keymap.set('n', '<leader>sw', '/\\<lt>\\><left><left>')
--- l/g/w: language
--- l: general
--- g: goto
--- w: workspace
--- c: inlay hints
-vim.keymap.set('n', '<leader>le', ':Lspsaga show_line_diagnostics<cr>')
-vim.keymap.set('n', '<leader>lE', ':Lspsaga show_cursor_diagnostics<cr>')
-vim.keymap.set('n', '<leader>lq', vim.diagnostic.setloclist)
-vim.keymap.set('n', '<leader>lk', vim.lsp.buf.hover)
-vim.keymap.set('n', '<leader>ld', ':Lspsaga preview_definition<cr>')
-vim.keymap.set('n', '<leader>lr', ':Lspsaga rename<cr>')
-vim.keymap.set('n', '<leader>lh', vim.lsp.buf.signature_help)
-vim.keymap.set('n', '<leader>la', vim.lsp.buf.code_action)
-vim.keymap.set('n', '<leader>lf', vim.lsp.buf.formatting)
-vim.keymap.set('n', '<leader>lb', ':SymbolsOutline<cr>')
-vim.keymap.set('n', '<leader>la', ':Lspsaga code_action<cr>')
-vim.keymap.set('n', '<leader>lu', ':Lspsaga lsp_finder<cr>')
-vim.keymap.set('n', '<F12>', ':Lspsaga code_action<cr>')
-vim.keymap.set('n', '<leader>it', function() require('rust-tools.inlay_hints').toggle_inlay_hints() end)
-vim.keymap.set('n', '<leader>is', function() require('rust-tools.inlay_hints').set_inlay_hints() end)
-vim.keymap.set('n', '<leader>id', function() require('rust-tools.inlay_hints').diable_inlay_hints() end)
-vim.keymap.set('n', '<f4>', ':SymbolsOutline<cr>')
 
-vim.keymap.set('n', '<leader>gD', vim.lsp.buf.declaration)
-vim.keymap.set('n', '<leader>gd', vim.lsp.buf.definition)
-vim.keymap.set('n', '<leader>gt', vim.lsp.buf.type_definition)
-vim.keymap.set('n', '<leader>gi', vim.lsp.buf.implementation)
-vim.keymap.set('n', '<leader>gp', ':Lspsaga diagnostic_jump_prev<cr>')
-vim.keymap.set('n', '<leader>gn', ':Lspsaga diagnostic_jump_next<cr>')
-vim.keymap.set('n', '<leader>gr', vim.lsp.buf.references)
+-- file tree
+vim.keymap.set('n','<leader>ee',':NvimTreeToggle<CR>')
+vim.keymap.set('n','<leader>ec',':NvimTreeFocus<CR>')
 
-vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder)
-vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder)
-vim.keymap.set('n', '<leader>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end)
+-- telescope
+vim.keymap.set('n', '<leader>ff', function() require 'telescope.builtin'.find_files {} end)-- 
+vim.keymap.set('n', '<leader>fg', function() require 'telescope.builtin'.git_files {} end)
+vim.keymap.set('n', '<leader>fb', function() require 'telescope.builtin'.buffers {} end)
+vim.keymap.set({ 'n', 'i' }, '<C-p>', function() require 'telescope.builtin'.registers {} end)
 
 -- t: terminal
 -- use <f5> to toggle terminal, this can be set in lua/configs/terminal.lua

@@ -11,6 +11,7 @@ vim.opt.autowrite      = true
 if (vim.fn.has('termguicolors') == 1) then
 	vim.opt.termguicolors = true
 end
+vim.opt.termguicolors = true
 -- tabs
 vim.opt.autoindent  = true
 vim.opt.tabstop     = 4
@@ -43,22 +44,22 @@ vim.g.loaded_tutor_mode_plugin = 1
 vim.g.loaded_remote_plugins    = 1
 require("core.theme")
 
-require('image').setup {
-	min_padding = 5,
-	show_label = true,
-	render_using_dither = true,
-}
+-- require('image').setup {
+-- 	min_padding = 5,
+	-- show_label = true,
+	-- render_using_dither = true,
+-- }
 
 -- Load plugin configs
 -- plugins without extra configs are configured directly here
 require("impatient")
 
-require("configs.autocomplete").config()
-require("configs.symbols_outline").config()
+-- require("configs.autocomplete").config()
+-- require("configs.symbols_outline").config()
 require("configs.statusline").config()
 require("configs.filetree").config()
 require("configs.treesitter").config()
-require("configs.startscreen").config()
+-- require("configs.startscreen").config()
 require("configs.git").config()
 require("configs.bufferline").config()
 require("configs.grammar").config()

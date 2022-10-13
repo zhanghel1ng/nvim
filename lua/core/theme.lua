@@ -2,7 +2,8 @@
 
 -- themes with special settings
 
--- sonokai
+vim.cmd('colorscheme tender')
+--  sonokai
 --sonokai styles: default, atlantis, andromeda, shusia, maia, espresso
 --vim.g.sonokai_style = 'default'
 --vim.g.sonokai_enable_italic = 0
@@ -51,9 +52,9 @@
 --vim.cmd("colorscheme edge")
 
 -- github
-vim.cmd("colorscheme github_dark_default")
+-- vim.cmd("colorscheme github_dark_default")
 
 -- oxocarbon
 -- vim.cmd("colorscheme oxocarbon-lua")
 
-vim.cmd("set background=dark")
+-- vim.cmd("set background=dark")
