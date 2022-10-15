@@ -1,8 +1,9 @@
 -- themes
+--
 
 -- themes with special settings
 
-vim.cmd('colorscheme tender')
+-- vim.cmd('colorscheme tender')
 --  sonokai
 --sonokai styles: default, atlantis, andromeda, shusia, maia, espresso
 --vim.g.sonokai_style = 'default'
@@ -22,9 +23,8 @@ vim.cmd('colorscheme tender')
 --vim.cmd('colorscheme sonokai')
 
 -- space vim dark
--- vim.g.space_vim_dark_background = 234 -- 234 (darkest) ~ 238 (lightest)
--- vim.cmd("colorscheme space-vim-dark");
-
+vim.g.space_vim_dark_background = 234 -- 234 (darkest) ~ 238 (lightest)
+vim.cmd("colorscheme space-vim-dark");
 -- kanagwa
 -- Default options:
 --require('kanagawa').setup({
@@ -58,3 +58,8 @@ vim.cmd('colorscheme tender')
 -- vim.cmd("colorscheme oxocarbon-lua")
 
 -- vim.cmd("set background=dark")
+vim.opt.list = true
+vim.opt.listchars:append "space:⋅"
+require("indent_blankline").setup {
+    space_char_blankline = " ",
+}
