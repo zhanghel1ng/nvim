@@ -9,7 +9,7 @@
 --vim.g.sonokai_style = 'default'
 --vim.g.sonokai_enable_italic = 0
 --vim.g.sonokai_disable_italic_comment = 0
---vim.cmd('colorscheme sonokai')
+vim.cmd('colorscheme sonokai')
 
 -- tokyo night
 -- vim.g.tokyodark_transparent_background = false
@@ -23,8 +23,8 @@
 --vim.cmd('colorscheme sonokai')
 
 -- space vim dark
-vim.g.space_vim_dark_background = 234 -- 234 (darkest) ~ 238 (lightest)
-vim.cmd("colorscheme space-vim-dark");
+-- vim.g.space_vim_dark_background = 234 -- 234 (darkest) ~ 238 (lightest)
+-- vim.cmd("colorscheme space-vim-dark");
 -- kanagwa
 -- Default options:
 --require('kanagawa').setup({

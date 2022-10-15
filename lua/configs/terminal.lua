@@ -34,8 +34,8 @@ function M.config()
 			-- not natively supported but implemented in this plugin.
 			border = 'single',
 			-- like `size`, width and height can be a number or function which is passed the current terminal
-			width = 140,
-			height = 50,
+			--width = 140,
+			--height = 50,
 			winblend = 1,
 		},
 		winbar = {
