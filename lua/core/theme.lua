@@ -9,8 +9,10 @@
 --vim.g.sonokai_style = 'default'
 --vim.g.sonokai_enable_italic = 0
 --vim.g.sonokai_disable_italic_comment = 0
-vim.cmd('colorscheme sonokai')
+--vim.cmd('colorscheme sonokai')
 
+vim.cmd('colorscheme gruvbox')
+--vim.cmd('colorscheme molokai')
 -- tokyo night
 -- vim.g.tokyodark_transparent_background = false
 --vim.g.tokyodark_enable_italic_comment = true
@@ -50,7 +52,6 @@ vim.cmd('colorscheme sonokai')
 --vim.g.edge_style = 'aura' -- neon, aura
 --vim.g.edge_better_performance = 1
 --vim.cmd("colorscheme edge")
-
 
 -- github
 -- vim.cmd("colorscheme github_dark_default")
