@@ -13,7 +13,7 @@ vim.keymap.set('n','<leader>wl','<c-w>l')
 -- b: buffer
 vim.keymap.set('n', '<leader>bn', ':bn<cr>')
 vim.keymap.set('n', '<leader>bp', ':bp<cr>')
-vim.keymap.set('n', '<leader>bd', ':bdelete<cr>')
+vim.keymap.set('n', '<leader>bd', ':Bdelete<cr>')
 
 -- file tree
 vim.keymap.set('n','<leader>ee',':NvimTreeToggle<CR>')
@@ -23,6 +23,7 @@ vim.keymap.set('n','<leader>ec',':NvimTreeFocus<CR>')
 vim.keymap.set('n', '<leader>ff', function() require 'telescope.builtin'.find_files {} end)-- 
 vim.keymap.set('n', '<leader>fg', function() require 'telescope.builtin'.git_files {} end)
 vim.keymap.set('n', '<leader>fb', function() require 'telescope.builtin'.buffers {} end)
+vim.keymap.set('n', '<leader>fl', function() require 'telescope.builtin'.live_grep {} end)
 vim.keymap.set({ 'n', 'i' }, '<C-p>', function() require 'telescope.builtin'.registers {} end)
 
 -- t: terminal
