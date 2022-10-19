@@ -29,7 +29,7 @@ require("core.gui")
 -- disable some useless standard plugins to save startup time
 -- these features have been better covered by plugins
 vim.g.loaded_matchparen        = 1
-vim.g.loaded_matchit           = 1
+-- vim.g.loaded_matchit           = 1
 vim.g.loaded_logiPat           = 1
 vim.g.loaded_rrhelper          = 1
 vim.g.loaded_tarPlugin         = 1

@@ -51,6 +51,7 @@ vim.cmd('colorscheme sonokai')
 --vim.g.edge_better_performance = 1
 --vim.cmd("colorscheme edge")
 
+
 -- github
 -- vim.cmd("colorscheme github_dark_default")
 

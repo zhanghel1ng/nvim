@@ -2,36 +2,38 @@
 --
 vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function()
-	use 'wbthomason/packer.nvim'
+    use 'wbthomason/packer.nvim'
 
     -- startup time optimise
     use 'dstein64/vim-startuptime'
-	use 'lewis6991/impatient.nvim'
-	use 'nathom/filetype.nvim'
+    use 'lewis6991/impatient.nvim'
+    use 'nathom/filetype.nvim'
 
     -- buffer
-	use {
-		'akinsho/bufferline.nvim',
-		requires = 'kyazdani42/nvim-web-devicons'
-	}
-	use 'moll/vim-bbye' -- for more sensible delete buffer cmd
+    use {
+        'akinsho/bufferline.nvim',
+        requires = 'nvim-tree/nvim-web-devicons'
+    }
+    use 'moll/vim-bbye' -- for more sensible delete buffer cmd
 
-	-- themes (disabled other themes to optimize startup time)
-	use 'sainnhe/sonokai'
+    -- themes (disabled other themes to optimize startup time)
+    use 'sainnhe/sonokai'
     use 'jacoborus/tender.vim'
     use 'tiagovla/tokyodark.nvim'
-	use 'projekt0n/github-nvim-theme'
-	use 'joshdick/onedark.vim'
-	use { 'catppuccin/nvim', as='catppuccin' }
-	use { 'sonph/onehalf', rtp='vim/' }
-	use 'liuchengxu/space-vim-dark'
-	use 'ahmedabdulrahman/aylin.vim'
-	use "rebelot/kanagawa.nvim"
-	use 'NLKNguyen/papercolor-theme'
-	use 'liuchengxu/space-vim-dark'
-	use 'sainnhe/edge'
-	use 'B4mbus/oxocarbon-lua.nvim'
-	use 'Th3Whit3Wolf/one-nvim'
+    use 'projekt0n/github-nvim-theme'
+    use 'joshdick/onedark.vim'
+    use { 'catppuccin/nvim', as = 'catppuccin' }
+    use { 'sonph/onehalf', rtp = 'vim/' }
+    use 'ahmedabdulrahman/aylin.vim'
+    use "rebelot/kanagawa.nvim"
+    use 'NLKNguyen/papercolor-theme'
+    use 'liuchengxu/space-vim-dark'
+    use 'sainnhe/edge'
+    use 'B4mbus/oxocarbon-lua.nvim'
+    use 'Th3Whit3Wolf/one-nvim'
+    use 'morhetz/gruvbox'
+    use 'altercation/vim-colors-solarized'
+    use 'tomasr/molokai'
     -- file tree
     use {
         'nvim-tree/nvim-tree.lua',
@@ -69,20 +71,30 @@ return require('packer').startup(function()
     -- status line
     use {
         'nvim-lualine/lualine.nvim',
-        requires = 'kyazdani42/nvim-web-devicons'
+        requires = 'nvim-tree/nvim-web-devicons'
     }
 
-    -- lsp 
+    -- lsp
     use "neovim/nvim-lspconfig"
     use 'glepnir/lspsaga.nvim'
     use 'simrat39/rust-tools.nvim'
     use 'mfussenegger/nvim-dap'
     use 'simrat39/symbols-outline.nvim'
     use 'hrsh7th/cmp-nvim-lsp'
-	use 'hrsh7th/cmp-buffer'
-	use 'hrsh7th/cmp-path'
-	use 'hrsh7th/cmp-cmdline'
-	use 'hrsh7th/nvim-cmp'
-	use 'L3MON4D3/LuaSnip'
-    use 'onsails/lspkind-nvim'
+    use 'hrsh7th/cmp-buffer'
+    use 'hrsh7th/cmp-path'
+    use 'hrsh7th/cmp-cmdline'
+    use 'hrsh7th/nvim-cmp'
+    use 'L3MON4D3/LuaSnip'
+    use 'onsails/lspkind.nvim'
+
+    use 'windwp/nvim-autopairs'
+    use 'mg979/vim-visual-multi'
+    use {
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
+    }
+    use 'tpope/vim-surround'
 end)

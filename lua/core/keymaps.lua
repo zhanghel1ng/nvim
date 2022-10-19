@@ -13,7 +13,7 @@ vim.keymap.set('n','<leader>wl','<c-w>l')
 -- b: buffer
 vim.keymap.set('n', '<leader>bn', ':bn<cr>')
 vim.keymap.set('n', '<leader>bp', ':bp<cr>')
-vim.keymap.set('n', '<leader>bd', ':Bdelete<cr>')
+vim.keymap.set('n', '<leader>bd', ':bdelete<cr>')
 
 -- file tree
 vim.keymap.set('n','<leader>ee',':NvimTreeToggle<CR>')
