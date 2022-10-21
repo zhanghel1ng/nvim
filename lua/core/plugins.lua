@@ -79,6 +79,8 @@ return require('packer').startup(function()
     use 'glepnir/lspsaga.nvim'
     use 'simrat39/rust-tools.nvim'
     use 'mfussenegger/nvim-dap'
+    use 'rcarriga/nvim-dap-ui'
+    use 'theHamsta/nvim-dap-virtual-text' 
     use 'simrat39/symbols-outline.nvim'
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-buffer'
@@ -97,4 +99,7 @@ return require('packer').startup(function()
         end
     }
     use 'tpope/vim-surround'
+
+    -- lsp 包管理器
+    use "williamboman/mason.nvim"
 end)

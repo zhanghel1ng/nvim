@@ -76,3 +76,7 @@ vim.keymap.set('n', '<leader>gr', vim.lsp.buf.references)
 vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder)
 vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder)
 vim.keymap.set('n', '<leader>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end)
+
+-- debug
+vim.keymap.set('n','<f8>',function() require'dap'.toggle_breakpoint() end)
+vim.keymap.set('n','<C-f8>',function() require'dap'.continue() end)

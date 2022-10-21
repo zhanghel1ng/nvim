@@ -2,6 +2,14 @@ local M = {}
 
 function M.config()
     require 'lspconfig'.gopls.setup {}
+    require 'lspconfig'.racket_langserver.setup({
+        cmd = {
+            "xvfb-run",
+            "racket",
+            "-l",
+            "racket-langserver"
+        }
+    })
     require('lspkind').init({
         -- DEPRECATED (use mode instead): enables text annotations
         --
@@ -305,6 +313,20 @@ function M.config()
         },
     })
     require('rust-tools').inlay_hints.enable()
+    require('nvim-autopairs').setup({
+        disable_filetype = { "TelescopePrompt", "vim" },
+    })
+
+    -- lsp安装器
+    require("mason").setup({
+        ui = {
+            icons = {
+                package_installed = "✓",
+                package_pending = "➜",
+                package_uninstalled = "✗"
+            }
+        }
+    })
 end
 
 return M
