@@ -5,10 +5,12 @@ vim.keymap.set('i','jj','<ESC>')
 vim.keymap.set('n','L','$')
 vim.keymap.set('n','H','^')
 vim.keymap.set('n','<leader>wc','<c-w>c')
-vim.keymap.set('n','<leader>wh','<c-w>h')
-vim.keymap.set('n','<leader>wj','<c-w>j')
-vim.keymap.set('n','<leader>wk','<c-w>k')
-vim.keymap.set('n','<leader>wl','<c-w>l')
+
+-- window resize
+vim.keymap.set('n', '<a-9>', '<c-w><')
+vim.keymap.set('n', '<a-0>', '<c-w>>')
+vim.keymap.set('n', '<a-->', '<c-w>-')
+vim.keymap.set('n', '<a-=>', '<c-w>+')
 
 -- b: buffer
 vim.keymap.set('n', '<leader>bn', ':bn<cr>')

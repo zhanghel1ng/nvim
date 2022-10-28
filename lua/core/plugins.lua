@@ -34,6 +34,8 @@ return require('packer').startup(function()
     use 'morhetz/gruvbox'
     use 'altercation/vim-colors-solarized'
     use 'tomasr/molokai'
+    use 'rose-pine/neovim'
+    use 'xiyaowong/nvim-transparent'
     -- file tree
     use {
         'nvim-tree/nvim-tree.lua',
@@ -80,7 +82,7 @@ return require('packer').startup(function()
     use 'simrat39/rust-tools.nvim'
     use 'mfussenegger/nvim-dap'
     use 'rcarriga/nvim-dap-ui'
-    use 'theHamsta/nvim-dap-virtual-text' 
+    use 'theHamsta/nvim-dap-virtual-text'
     use 'simrat39/symbols-outline.nvim'
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-buffer'
@@ -89,6 +91,7 @@ return require('packer').startup(function()
     use 'hrsh7th/nvim-cmp'
     use 'L3MON4D3/LuaSnip'
     use 'onsails/lspkind.nvim'
+    -- use 'mfussenegger/nvim-jdtls'
 
     use 'windwp/nvim-autopairs'
     use 'mg979/vim-visual-multi'

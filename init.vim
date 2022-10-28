@@ -21,4 +21,4 @@ if exists("g:neovide")
 	let g:neovide_remember_window_size = v:true
 endif
 autocmd FileType markdown setlocal spell
-let g:indentLine_char = '│'
+let g:indentLine_char = '¦'
