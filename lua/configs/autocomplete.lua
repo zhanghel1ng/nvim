@@ -10,6 +10,12 @@ function M.config()
             "racket-langserver"
         }
     })
+    require 'lspconfig'.jdtls.setup {
+        cmd = {
+            'jdtls'
+        }
+    }
+
     require 'lspconfig'.sumneko_lua.setup {}
     require('lspkind').init({
         -- DEPRECATED (use mode instead): enables text annotations
@@ -219,8 +225,8 @@ function M.config()
         -- preview lines of lsp_finder and definition preview
         max_preview_lines = 10,
         -- use emoji lightbulb in default
-        -- code_action_icon = "💡",
-        code_action_icon = "",
+        code_action_icon = "💡",
+        -- code_action_icon = "",
         -- if true can press number to execute the codeaction in codeaction window
         code_action_num_shortcut = true,
         -- same as nvim-lightbulb but async
