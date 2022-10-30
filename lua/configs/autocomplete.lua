@@ -1,7 +1,9 @@
 local M = {}
 
 function M.config()
-    require 'lspconfig'.gopls.setup {}
+    require 'lspconfig'.gopls.setup({
+       sigle_file_support = true 
+    })
     require 'lspconfig'.racket_langserver.setup({
         cmd = {
             "xvfb-run",

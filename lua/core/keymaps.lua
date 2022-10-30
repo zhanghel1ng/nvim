@@ -1,10 +1,10 @@
 vim.g.mapleader = ' '
 
--- base opration
-vim.keymap.set('i','jj','<ESC>')
-vim.keymap.set('n','L','$')
-vim.keymap.set('n','H','^')
-vim.keymap.set('n','<leader>wc','<c-w>c')
+
+vim.keymap.set('i', 'jj', '<ESC>')
+vim.keymap.set('n', 'L', '$')
+vim.keymap.set('n', 'H', '^')
+vim.keymap.set('n', '<leader>wc', '<c-w>c')
 
 -- window resize
 vim.keymap.set('n', '<a-9>', '<c-w><')
@@ -18,11 +18,11 @@ vim.keymap.set('n', '<leader>bp', ':bp<cr>')
 vim.keymap.set('n', '<leader>bd', ':Bdelete<cr>')
 
 -- file tree
-vim.keymap.set('n','<leader>ee',':NvimTreeToggle<CR>')
-vim.keymap.set('n','<leader>ec',':NvimTreeFocus<CR>')
+vim.keymap.set('n', '<leader>ee', ':NvimTreeToggle<CR>')
+vim.keymap.set('n', '<leader>ec', ':NvimTreeFocus<CR>')
 
 -- telescope
-vim.keymap.set('n', '<leader>ff', function() require 'telescope.builtin'.find_files {} end)-- 
+vim.keymap.set('n', '<leader>ff', function() require 'telescope.builtin'.find_files {} end) --
 vim.keymap.set('n', '<leader>fg', function() require 'telescope.builtin'.git_files {} end)
 vim.keymap.set('n', '<leader>fb', function() require 'telescope.builtin'.buffers {} end)
 vim.keymap.set('n', '<leader>fl', function() require 'telescope.builtin'.live_grep {} end)

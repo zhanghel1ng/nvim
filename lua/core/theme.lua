@@ -13,44 +13,44 @@
 
 -- vim.cmd('colorscheme gruvbox')
 require('rose-pine').setup({
-	--- @usage 'main' | 'moon'
-	dark_variant = 'main',
-	bold_vert_split = false,
-	dim_nc_background = false,
-	disable_background = false,
-	disable_float_background = true,
-	disable_italics = true,
+    --- @usage 'main' | 'moon'
+    dark_variant = 'main',
+    bold_vert_split = false,
+    dim_nc_background = false,
+    disable_background = false,
+    disable_float_background = true,
+    disable_italics = true,
 
-	--- @usage string hex value or named color from rosepinetheme.com/palette
-	groups = {
-		background = 'base',
-		panel = 'surface',
-		border = 'highlight_med',
-		comment = 'muted',
-		link = 'iris',
-		punctuation = 'subtle',
+    --- @usage string hex value or named color from rosepinetheme.com/palette
+    groups = {
+        background = 'base',
+        panel = 'surface',
+        border = 'highlight_med',
+        comment = 'muted',
+        link = 'iris',
+        punctuation = 'subtle',
 
-		error = 'love',
-		hint = 'iris',
-		info = 'foam',
-		warn = 'gold',
+        error = 'love',
+        hint = 'iris',
+        info = 'foam',
+        warn = 'gold',
 
-		headings = {
-			h1 = 'iris',
-			h2 = 'foam',
-			h3 = 'rose',
-			h4 = 'gold',
-			h5 = 'pine',
-			h6 = 'foam',
-		}
-		-- or set all headings at once
-		-- headings = 'subtle'
-	},
+        headings = {
+            h1 = 'iris',
+            h2 = 'foam',
+            h3 = 'rose',
+            h4 = 'gold',
+            h5 = 'pine',
+            h6 = 'foam',
+        }
+        -- or set all headings at once
+        -- headings = 'subtle'
+    },
 
-	-- Change specific vim highlight groups
-	highlight_groups = {
-		ColorColumn = { bg = 'rose' }
-	}
+    -- Change specific vim highlight groups
+    highlight_groups = {
+        ColorColumn = { bg = 'rose' }
+    }
 })
 local hours = os.date("%H")
 local hour  = tonumber (hours)
@@ -62,19 +62,19 @@ else
     vim.cmd('colorscheme onedark')
 end
 require("transparent").setup({
-  enable = false, -- boolean: enable transparent
-  extra_groups = { -- table/string: additional groups that should be cleared
-    -- In particular, when you set it to 'all', that means all available groups
+    enable = false, -- boolean: enable transparent
+    extra_groups = { -- table/string: additional groups that should be cleared
+        -- In particular, when you set it to 'all', that means all available groups
 
-    -- example of akinsho/nvim-bufferline.lua
-    -- "BufferLineTabClose",
-    -- "BufferlineBufferSelected",
-    -- "BufferLineFill",
-    -- "BufferLineBackground",
-    -- "BufferLineSeparator",
-    -- "BufferLineIndicatorSelected",
-  },
-  exclude = {}, -- table: groups you don't want to clear
+        -- example of akinsho/nvim-bufferline.lua
+        -- "BufferLineTabClose",
+        -- "BufferlineBufferSelected",
+        -- "BufferLineFill",
+        -- "BufferLineBackground",
+        -- "BufferLineSeparator",
+        -- "BufferLineIndicatorSelected",
+    },
+    exclude = {}, -- table: groups you don't want to clear
 })
 -- vim.cmd(":Gitsigns toggle_signs")
 -- vim.cmd('colorscheme molokai')
