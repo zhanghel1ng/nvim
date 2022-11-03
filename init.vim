@@ -22,3 +22,5 @@ if exists("g:neovide")
 endif
 autocmd FileType markdown setlocal spell
 let g:indentLine_char = '¦'
+hi DapBreakpoint guifg='#993939' 
+hi LspSagaLightBulb guifg='#FFD700' 
