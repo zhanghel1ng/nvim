@@ -52,15 +52,25 @@ require('rose-pine').setup({
         ColorColumn = { bg = 'rose' }
     }
 })
-local hours = os.date("%H")
-local hour  = tonumber (hours)
-if hour > 10 and hour < 18 then
-    vim.cmd('set background=light')
-    vim.cmd('colorscheme rose-pine')
-else
-    -- vim.cmd('colorscheme gruvbox')
-    vim.cmd('colorscheme onedark')
-end
+vim.g.nord_contrast                = false
+vim.g.nord_borders                 = false
+vim.g.nord_disable_background      = false
+vim.g.nord_italic                  = false
+vim.g.nord_uniform_diff_background = true
+vim.g.cursorline_transparent       = true
+-- require('nord').set()
+-- vim.cmd('colorscheme nord')
+-- local hours                        = os.date("%H")
+-- local hour                         = tonumber(hours)
+-- if hour > 10 and hour < 18 then
+--     vim.cmd('set background=light')
+--     vim.cmd('colorscheme rose-pine')
+-- else
+--     -- vim.cmd('colorscheme gruvbox')
+--     -- vim.cmd('colorscheme onedark')
+--     vim.cmd('colorscheme nord')
+-- end
+vim.cmd('colorscheme nord')
 require("transparent").setup({
     enable = false, -- boolean: enable transparent
     extra_groups = { -- table/string: additional groups that should be cleared
