@@ -35,6 +35,7 @@ return require('packer').startup(function()
     use 'altercation/vim-colors-solarized'
     use 'tomasr/molokai'
     use 'rose-pine/neovim'
+    use 'shaunsingh/nord.nvim'
     use 'xiyaowong/nvim-transparent'
     -- file tree
     use {
@@ -65,7 +66,6 @@ return require('packer').startup(function()
     -- git
     use {
         'lewis6991/gitsigns.nvim',
-        tag = 'release',
     }
     -- english grammar check
     use 'rhysd/vim-grammarous'
@@ -95,8 +95,7 @@ return require('packer').startup(function()
 
     use 'windwp/nvim-autopairs'
     use 'mg979/vim-visual-multi'
-    use {
-        'numToStr/Comment.nvim',
+    use { 'numToStr/Comment.nvim',
         config = function()
             require('Comment').setup()
         end
@@ -105,4 +104,16 @@ return require('packer').startup(function()
 
     -- lsp 包管理器
     use "williamboman/mason.nvim"
+
+    use {
+        "folke/trouble.nvim",
+        requires = "kyazdani42/nvim-web-devicons",
+        config = function()
+            require("trouble").setup {
+                -- your configuration comes here
+                -- or leave it empty to use the default settings
+                -- refer to the configuration section below
+            }
+        end
+    }
 end)

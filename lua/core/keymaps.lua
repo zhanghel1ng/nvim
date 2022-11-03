@@ -52,12 +52,12 @@ vim.keymap.set('n', '<leader>tv', ':ToggleTerm direction=vertical<cr>')
 vim.keymap.set('n', '<leader>le', ':Lspsaga show_line_diagnostics<cr>')
 vim.keymap.set('n', '<leader>lE', ':Lspsaga show_cursor_diagnostics<cr>')
 vim.keymap.set('n', '<leader>lq', vim.diagnostic.setloclist)
-vim.keymap.set('n', '<leader>lk', vim.lsp.buf.hover)
+vim.keymap.set('n', 'gh', vim.lsp.buf.hover)
 vim.keymap.set('n', '<leader>ld', ':Lspsaga peek_definition<cr>')
 vim.keymap.set('n', '<leader>lr', ':Lspsaga rename<cr>')
-vim.keymap.set('n', '<leader>lh', vim.lsp.buf.signature_help)
+vim.keymap.set('i', '<C-p>', vim.lsp.buf.signature_help)
 vim.keymap.set('n', '<leader>la', vim.lsp.buf.code_action)
-vim.keymap.set('n', '<leader>lf', vim.lsp.buf.formatting)
+vim.keymap.set('n', '<leader>lf', function() vim.lsp.buf.format { async = true } end)
 vim.keymap.set('n', '<leader>lb', ':SymbolsOutline<cr>')
 vim.keymap.set('n', '<leader>la', ':Lspsaga code_action<cr>')
 vim.keymap.set('n', '<leader>lu', ':Lspsaga lsp_finder<cr>')
@@ -71,14 +71,36 @@ vim.keymap.set('n', 'gD', vim.lsp.buf.declaration)
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
 vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition)
 vim.keymap.set('n', 'gi', vim.lsp.buf.implementation)
-vim.keymap.set('n', '<S-f2>', ':Lspsaga diagnostic_jump_prev<cr>')
-vim.keymap.set('n', '<f2>', ':Lspsaga diagnostic_jump_next<cr>')
+vim.keymap.set('n', '[e', ':Lspsaga diagnostic_jump_prev<cr>')
+vim.keymap.set('n', ']e', ':Lspsaga diagnostic_jump_next<cr>')
 vim.keymap.set('n', '<leader>gr', vim.lsp.buf.references)
 
 vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder)
 vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder)
 vim.keymap.set('n', '<leader>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end)
+vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>",
+  {silent = true, noremap = true}
+)
+vim.keymap.set("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>",
+  {silent = true, noremap = true}
+)
+vim.keymap.set("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>",
+  {silent = true, noremap = true}
+)
+vim.keymap.set("n", "<leader>xl", "<cmd>TroubleToggle loclist<cr>",
+  {silent = true, noremap = true}
+)
+vim.keymap.set("n", "<leader>xq", "<cmd>TroubleToggle quickfix<cr>",
+  {silent = true, noremap = true}
+)
+vim.keymap.set("n", "gR", "<cmd>TroubleToggle lsp_references<cr>",
+  {silent = true, noremap = true}
+)
 
+vim.keymap.set('n','<leader>wj',function () require("trouble").next({skip_groups = true, jump = true}) end)
+vim.keymap.set('n','<leader>wk',function () require("trouble").previous({skip_groups = true, jump = true}) end)
 -- debug
-vim.keymap.set('n','<f8>',function() require'dap'.toggle_breakpoint() end)
-vim.keymap.set('n','<C-f8>',function() require'dap'.continue() end)
+vim.keymap.set('n', ',b', function() require 'dap'.toggle_breakpoint() end)
+vim.keymap.set('n', ',d', function() require 'dap'.continue() end)
+vim.keymap.set('n', '<leader>di', function() require 'dap'.step_into() end)
+vim.keymap.set('n', '<leader>do', function() require 'dap'.step_over() end)
