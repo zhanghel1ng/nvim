@@ -39,14 +39,14 @@ vim.keymap.set('n', '<leader>th', ':ToggleTerm direction=horizontal<cr>')
 vim.keymap.set('n', '<leader>tv', ':ToggleTerm direction=vertical<cr>')
 
 -- h: git
-vim.keymap.set('n', '<leader>hu', ':Gitsigns undo_stage_hunk<cr>')
-vim.keymap.set('n', '<leader>hn', ':Gitsigns next_hunk<cr>')
-vim.keymap.set('n', '<leader>hc', ':Gitsigns preview_hunk<cr>')
-vim.keymap.set('n', '<leader>hr', ':Gitsigns reset_hunk<cr>')
-vim.keymap.set('n', '<leader>hR', ':Gitsigns reset_buffer')
-vim.keymap.set('n', '<leader>hb', ':Gitsigns blame_line<cr>')
-vim.keymap.set('n', '<leader>hd', ':Gitsigns diffthis<cr>')
-vim.keymap.set('n', '<leader>hs', ':<C-U>Gitsigns select_hunk<CR>')
+-- vim.keymap.set('n', '<leader>hu', ':Gitsigns undo_stage_hunk<cr>')
+-- vim.keymap.set('n', '<leader>hn', ':Gitsigns next_hunk<cr>')
+-- vim.keymap.set('n', '<leader>hc', ':Gitsigns preview_hunk<cr>')
+-- vim.keymap.set('n', '<leader>hr', ':Gitsigns reset_hunk<cr>')
+-- vim.keymap.set('n', '<leader>hR', ':Gitsigns reset_buffer')
+-- vim.keymap.set('n', '<leader>hb', ':Gitsigns blame_line<cr>')
+-- vim.keymap.set('n', '<leader>hd', ':Gitsigns diffthis<cr>')
+-- vim.keymap.set('n', '<leader>hs', ':<C-U>Gitsigns select_hunk<CR>')
 
 -- lsp
 vim.keymap.set('n', '<leader>le', ':Lspsaga show_line_diagnostics<cr>')
