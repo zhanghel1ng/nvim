@@ -53,7 +53,7 @@ require("core.theme")
 -- Load plugin configs
 -- plugins without extra configs are configured directly here
 require("impatient")
-
+require("configs.dap.init")
 require("configs.autocomplete").config()
 require("configs.symbols_outline").config()
 require("configs.statusline").config()
@@ -61,6 +61,8 @@ require("configs.filetree").config()
 require("configs.treesitter").config()
 -- require("configs.startscreen").config()
 require("configs.git").config()
--- require("configs.bufferline").config()
+require("configs.bufferline").config()
 require("configs.grammar").config()
 require("configs.terminal").config()
+require("configs.tele").config()
+require("configs.lspstyle").config()
