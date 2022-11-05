@@ -8,7 +8,7 @@ function M.config()
             topdelete    = { hl = 'GitSignsDelete', text = '‾', numhl = 'GitSignsDeleteNr', linehl = 'GitSignsDeleteLn' },
             changedelete = { hl = 'GitSignsChange', text = '~', numhl = 'GitSignsChangeNr', linehl = 'GitSignsChangeLn' },
         },
-        signcolumn                   = true, -- Toggle with `:Gitsigns toggle_signs`
+        signcolumn                   = false, -- Toggle with `:Gitsigns toggle_signs`
         numhl                        = false, -- Toggle with `:Gitsigns toggle_numhl`
         linehl                       = false, -- Toggle with `:Gitsigns toggle_linehl`
         word_diff                    = false, -- Toggle with `:Gitsigns toggle_word_diff`
@@ -65,6 +65,7 @@ function M.config()
             -- Actions
             map({ 'n', 'v' }, '<leader>hs', ':Gitsigns stage_hunk<CR>')
             map({ 'n', 'v' }, '<leader>hr', ':Gitsigns reset_hunk<CR>')
+            map({ 'n', 'v' }, '<leader>hg', ':Gitsigns toggle_signs<CR>')
             map('n', '<leader>hS', gs.stage_buffer)
             map('n', '<leader>hu', gs.undo_stage_hunk)
             map('n', '<leader>hR', gs.reset_buffer)
