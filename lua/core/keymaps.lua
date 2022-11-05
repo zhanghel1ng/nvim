@@ -99,6 +99,14 @@ vim.keymap.set("n", "gR", "<cmd>TroubleToggle lsp_references<cr>",
 
 vim.keymap.set('n','<leader>wj',function () require("trouble").next({skip_groups = true, jump = true}) end)
 vim.keymap.set('n','<leader>wk',function () require("trouble").previous({skip_groups = true, jump = true}) end)
+
+-- java
+vim.keymap.set('n','<A-o>',function() require'jdtls'.organize_imports() end)
+vim.keymap.set('n','crv',function() require('jdtls').extract_variable() end)
+vim.keymap.set('v','crv',function() require('jdtls').extract_variable(true) end)
+vim.keymap.set('n','crc',function() require('jdtls').extract_constant() end)
+vim.keymap.set('v','crc',function() require('jdtls').extract_constant(true) end)
+vim.keymap.set('v','crm',function() require('jdtls').extract_method(true) end)
 -- debug
 vim.keymap.set('n', ',b', function() require 'dap'.toggle_breakpoint() end)
 vim.keymap.set('n', ',d', function() require 'dap'.continue() end)
