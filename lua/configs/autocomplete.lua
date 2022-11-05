@@ -1,6 +1,7 @@
 local M = {}
 
 function M.config()
+    local mason_lsp = '/home/zhang/.local/share/nvim/mason/bin/'
     require 'lspconfig'.gopls.setup({
         single_file_support = true
     })
@@ -12,11 +13,15 @@ function M.config()
             "racket-langserver"
         }
     })
-    require 'lspconfig'.jdtls.setup {
+    require 'lspconfig'.html.setup({
+        cmd = { mason_lsp .. "vscode-html-language-server", "--stdio" }
+    })
+    require 'lspconfig'.pyright.setup({
         cmd = {
-            'jdtls'
+            mason_lsp .. "pyright-langserver",
+            "--stdio"
         }
-    }
+    })
 
     require 'lspconfig'.sumneko_lua.setup {}
     require('lspkind').init({
@@ -180,7 +185,7 @@ function M.config()
     -- nvim-lspconfig config
     -- List of all pre-configured LSP servers:
     -- github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-    local servers = { 'clangd', 'rust_analyzer', 'pylsp', 'sumneko_lua' }
+    local servers = { 'clangd', 'rust_analyzer', 'sumneko_lua' }
     for _, lsp in pairs(servers) do
         require('lspconfig')[lsp].setup {
             on_attach = on_attach
@@ -207,7 +212,7 @@ function M.config()
     saga.init_lsp_saga({
         symbol_in_winbar = {
             in_custom = false,
-            enable = true,
+            enable = false,
             separator = ' ',
             show_file = true,
             -- define how to customize filename, eg: %:., %
@@ -248,6 +253,7 @@ function M.config()
             }
         }
     })
+    vim.lsp.set_log_level('warn')
 end
 
 return M
