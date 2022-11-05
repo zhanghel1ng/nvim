@@ -2,8 +2,6 @@ vim.g.mapleader = ' '
 
 
 vim.keymap.set('i', 'jj', '<ESC>')
-vim.keymap.set('n', 'L', '$')
-vim.keymap.set('n', 'H', '^')
 vim.keymap.set('n', '<leader>wc', '<c-w>c')
 
 -- window resize
@@ -26,6 +24,8 @@ vim.keymap.set('n', '<leader>ff', function() require 'telescope.builtin'.find_fi
 vim.keymap.set('n', '<leader>fg', function() require 'telescope.builtin'.git_files {} end)
 vim.keymap.set('n', '<leader>fb', function() require 'telescope.builtin'.buffers {} end)
 vim.keymap.set('n', '<leader>fl', function() require 'telescope.builtin'.live_grep {} end)
+vim.keymap.set('n', '<leader>fs', function() require 'telescope.builtin'.lsp_workspace_symbols {} end)
+vim.keymap.set('n', '<leader>fo', function() require 'telescope.builtin'.oldfiles {} end)
 vim.keymap.set({ 'n', 'i' }, '<C-p>', function() require 'telescope.builtin'.registers {} end)
 
 -- t: terminal
