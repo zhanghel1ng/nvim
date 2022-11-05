@@ -91,7 +91,7 @@ return require('packer').startup(function()
     use 'hrsh7th/nvim-cmp'
     use 'L3MON4D3/LuaSnip'
     use 'onsails/lspkind.nvim'
-    -- use 'mfussenegger/nvim-jdtls'
+    use 'mfussenegger/nvim-jdtls'
 
     use 'windwp/nvim-autopairs'
     use 'mg979/vim-visual-multi'
