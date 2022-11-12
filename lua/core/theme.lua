@@ -10,54 +10,55 @@
 --vim.g.sonokai_enable_italic = 0
 --vim.g.sonokai_disable_italic_comment = 0
 --vim.cmd('colorscheme sonokai')
-
+-- vim.g.gruvbox_sign_column = '#282828'
 -- vim.cmd('colorscheme gruvbox')
-require('rose-pine').setup({
-    --- @usage 'main' | 'moon'
-    dark_variant = 'main',
-    bold_vert_split = false,
-    dim_nc_background = false,
-    disable_background = false,
-    disable_float_background = true,
-    disable_italics = true,
-
-    --- @usage string hex value or named color from rosepinetheme.com/palette
-    groups = {
-        background = 'base',
-        panel = 'surface',
-        border = 'highlight_med',
-        comment = 'muted',
-        link = 'iris',
-        punctuation = 'subtle',
-
-        error = 'love',
-        hint = 'iris',
-        info = 'foam',
-        warn = 'gold',
-
-        headings = {
-            h1 = 'iris',
-            h2 = 'foam',
-            h3 = 'rose',
-            h4 = 'gold',
-            h5 = 'pine',
-            h6 = 'foam',
-        }
-        -- or set all headings at once
-        -- headings = 'subtle'
-    },
-
-    -- Change specific vim highlight groups
-    highlight_groups = {
-        ColorColumn = { bg = 'rose' }
-    }
-})
-vim.g.nord_contrast                = false
-vim.g.nord_borders                 = false
-vim.g.nord_disable_background      = false
-vim.g.nord_italic                  = false
-vim.g.nord_uniform_diff_background = true
-vim.g.cursorline_transparent       = true
+-- require('rose-pine').setup({
+--     --- @usage 'main' | 'moon'
+--     dark_variant = 'main',
+--     bold_vert_split = false,
+--     dim_nc_background = false,
+--     disable_background = false,
+--     disable_float_background = true,
+--     disable_italics = true,
+--
+--     --- @usage string hex value or named color from rosepinetheme.com/palette
+--     groups = {
+--         background = 'base',
+--         panel = 'surface',
+--         border = 'highlight_med',
+--         comment = 'muted',
+--         link = 'iris',
+--         punctuation = 'subtle',
+--
+--         error = 'love',
+--         hint = 'iris',
+--         info = 'foam',
+--         warn = 'gold',
+--
+--         headings = {
+--             h1 = 'iris',
+--             h2 = 'foam',
+--             h3 = 'rose',
+--             h4 = 'gold',
+--             h5 = 'pine',
+--             h6 = 'foam',
+--         }
+--         -- or set all headings at once
+--         -- headings = 'subtle'
+--     },
+--
+--     -- Change specific vim highlight groups
+--     highlight_groups = {
+--         ColorColumn = { bg = 'rose' }
+--     }
+-- })
+-- nord
+-- vim.g.nord_contrast                = false
+-- vim.g.nord_borders                 = false
+-- vim.g.nord_disable_background      = false
+-- vim.g.nord_italic                  = false
+-- vim.g.nord_uniform_diff_background = true
+-- vim.g.cursorline_transparent       = true
 -- require('nord').set()
 -- vim.cmd('colorscheme nord')
 -- local hours                        = os.date("%H")
@@ -70,9 +71,10 @@ vim.g.cursorline_transparent       = true
 --     -- vim.cmd('colorscheme onedark')
 --     vim.cmd('colorscheme nord')
 -- end
-vim.cmd('colorscheme nord')
+-- vim.cmd('colorscheme habamax')
+-- vim.cmd('colorscheme edge')
 require("transparent").setup({
-    enable = false, -- boolean: enable transparent
+    enable = true, -- boolean: enable transparent
     extra_groups = { -- table/string: additional groups that should be cleared
         -- In particular, when you set it to 'all', that means all available groups
 
@@ -125,9 +127,10 @@ require("transparent").setup({
 --vim.cmd("colorscheme kanagawa")
 
 -- edge
---vim.g.edge_style = 'aura' -- neon, aura
---vim.g.edge_better_performance = 1
---vim.cmd("colorscheme edge")
+-- vim.g.edge_style = 'neon' -- neon, aura
+-- vim.g.edge_better_performance = 1
+-- vim.cmd("colorscheme edge")
+
 
 -- github
 -- vim.cmd("colorscheme github_dark_default")
@@ -137,7 +140,18 @@ require("transparent").setup({
 
 -- vim.cmd("set background=dark")
 vim.opt.list = true
-vim.opt.listchars:append "space:⋅"
-require("indent_blankline").setup {
-    space_char_blankline = " ",
-}
+-- vim.opt.listchars:append "space:⋅"
+-- require("indent_blankline").setup {
+--     space_char_blankline = " ",
+-- }
+-- everforest
+-- vim.cmd('set background=light')
+vim.g.everforest_sign_column_background = 'none'
+vim.g.everforest_disable_italic_comment = 1
+-- vim.g.everforest_background = 'soft'
+-- vim.g.everforest_transparent_background = 1
+vim.cmd("colorscheme everforest")
+vim.g.gruvbox_material_sign_column_background = 'none'
+vim.g.gruvbox_material_disable_italic_comment = 1
+vim.g.gruvbox_material_background = 'soft'
+-- vim.cmd("colorscheme gruv=lightbox-material")

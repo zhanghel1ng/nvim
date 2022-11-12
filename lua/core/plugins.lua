@@ -37,6 +37,9 @@ return require('packer').startup(function()
     use 'rose-pine/neovim'
     use 'shaunsingh/nord.nvim'
     use 'xiyaowong/nvim-transparent'
+    use 'dracula/vim'
+    use 'sainnhe/everforest'
+    use 'sainnhe/gruvbox-material'
     -- file tree
     use {
         'nvim-tree/nvim-tree.lua',
@@ -54,6 +57,7 @@ return require('packer').startup(function()
             'nvim-lua/plenary.nvim'
         }
     }
+    use { "nvim-telescope/telescope-file-browser.nvim" }
     -- floating terminal
     use 'akinsho/toggleterm.nvim'
 
@@ -92,7 +96,8 @@ return require('packer').startup(function()
     use 'L3MON4D3/LuaSnip'
     use 'onsails/lspkind.nvim'
     use 'mfussenegger/nvim-jdtls'
-
+    use 'mhartington/formatter.nvim'
+    -- null-ls
     use 'windwp/nvim-autopairs'
     use 'mg979/vim-visual-multi'
     use { 'numToStr/Comment.nvim',
@@ -101,7 +106,17 @@ return require('packer').startup(function()
         end
     }
     use 'tpope/vim-surround'
-
+    -- Lua
+    use {
+        "folke/todo-comments.nvim",
+        config = function()
+            require("todo-comments").setup {
+                -- your configuration comes here
+                -- or leave it empty to use the default settings
+                -- refer to the configuration section below
+            }
+        end
+    }
     -- lsp 包管理器
     use "williamboman/mason.nvim"
 

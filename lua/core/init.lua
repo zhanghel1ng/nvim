@@ -9,17 +9,17 @@ vim.opt.updatetime     = 100
 vim.opt.cursorline     = true
 vim.opt.autowrite      = true
 if (vim.fn.has('termguicolors') == 1) then
-	vim.opt.termguicolors = true
+    vim.opt.termguicolors = true
 end
 vim.opt.termguicolors = true
 -- tabs
-vim.opt.autoindent  = true
-vim.opt.tabstop     = 4
-vim.opt.shiftwidth  = 4
-vim.opt.softtabstop = 4
-vim.opt.mouse       = 'a'
-vim.opt.expandtab   = true
-vim.opt.autowrite   = false
+vim.opt.autoindent    = true
+vim.opt.tabstop       = 4
+vim.opt.shiftwidth    = 4
+vim.opt.softtabstop   = 4
+vim.opt.mouse         = 'a'
+vim.opt.expandtab     = true
+vim.opt.autowrite     = false
 vim.opt.formatoptions = ''
 
 require("core.keymaps")
@@ -42,12 +42,13 @@ vim.g.loaded_netrw             = 1
 vim.g.loaded_netrwPlugin       = 1
 vim.g.loaded_tutor_mode_plugin = 1
 vim.g.loaded_remote_plugins    = 1
+vim.g.loaded_nvim_tree         = 1
 require("core.theme")
 
 -- require('image').setup {
 -- 	min_padding = 5,
-	-- show_label = true,
-	-- render_using_dither = true,
+-- show_label = true,
+-- render_using_dither = true,
 -- }
 
 -- Load plugin configs
@@ -66,3 +67,4 @@ require("configs.grammar").config()
 require("configs.terminal").config()
 require("configs.tele").config()
 require("configs.lspstyle").config()
+require("configs.format").config()
