@@ -67,6 +67,7 @@ return require('packer').startup(function()
     -- nvim treesitter
     use 'nvim-treesitter/nvim-treesitter'
 
+    use 'windwp/nvim-ts-autotag'
     -- git
     use {
         'lewis6991/gitsigns.nvim',
