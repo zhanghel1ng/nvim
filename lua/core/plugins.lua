@@ -40,6 +40,12 @@ return require('packer').startup(function()
     use 'dracula/vim'
     use 'sainnhe/everforest'
     use 'sainnhe/gruvbox-material'
+    use 'tanvirtin/monokai.nvim'
+    use 'overcache/NeoSolarized'
+    use {
+        'svrana/neosolarized.nvim',
+        requires = { 'tjdevries/colorbuddy.nvim' }
+    }
     -- file tree
     use {
         'nvim-tree/nvim-tree.lua',
@@ -62,7 +68,7 @@ return require('packer').startup(function()
     use 'akinsho/toggleterm.nvim'
 
     -- indent guide
-    use 'lukas-reineke/indent-blankline.nvim'
+    -- use 'lukas-reineke/indent-blankline.nvim'
 
     -- nvim treesitter
     use 'nvim-treesitter/nvim-treesitter'
@@ -97,6 +103,7 @@ return require('packer').startup(function()
     use 'L3MON4D3/LuaSnip'
     use 'onsails/lspkind.nvim'
     use 'mfussenegger/nvim-jdtls'
+    -- use 'ray-x/go.nvim'
     use 'mhartington/formatter.nvim'
     -- null-ls
     use 'windwp/nvim-autopairs'
@@ -131,5 +138,12 @@ return require('packer').startup(function()
                 -- refer to the configuration section below
             }
         end
+    }
+    -- use 'ggandor/leap.nvim'
+    -- Lua
+    use {
+        'abecodes/tabout.nvim',
+        -- wants = { 'nvim-treesitter' }, -- or require if not used so far
+        -- after = { 'nvim-cmp' } -- if a completion plugin is using tabs load it before
     }
 end)

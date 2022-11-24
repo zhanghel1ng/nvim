@@ -2,6 +2,9 @@ lua require('core.init')
 
 set clipboard^=unnamed,unnamedplus
 set termguicolors
+set splitbelow
+set splitright
+set showmatch
 if has('unix')
 	set thesaurus+=/usr/share/dict/words
 endif
@@ -21,6 +24,6 @@ if exists("g:neovide")
 	let g:neovide_remember_window_size = v:true
 endif
 autocmd FileType markdown setlocal spell
-let g:indentLine_char = '¦'
+let g:indentLine_char = ''
 hi DapBreakpoint guifg='#993939'
 " hi LspSagaLightBulb guifg='#FFD700' 

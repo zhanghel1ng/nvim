@@ -8,10 +8,13 @@ vim.opt.shiftround     = true
 vim.opt.updatetime     = 100
 vim.opt.cursorline     = true
 vim.opt.autowrite      = true
+vim.opt.ignorecase     = true
+vim.opt.smartcase      = true
+vim.opt.signcolumn     = "yes"
 if (vim.fn.has('termguicolors') == 1) then
     vim.opt.termguicolors = true
 end
-vim.opt.termguicolors = true
+-- vim.opt.termguicolors = true
 -- tabs
 vim.opt.autoindent    = true
 vim.opt.tabstop       = 4
@@ -19,7 +22,7 @@ vim.opt.shiftwidth    = 4
 vim.opt.softtabstop   = 4
 vim.opt.mouse         = 'a'
 vim.opt.expandtab     = true
-vim.opt.autowrite     = false
+-- vim.opt.autowrite     = false
 vim.opt.formatoptions = ''
 
 require("core.keymaps")
@@ -29,7 +32,7 @@ require("core.gui")
 -- disable some useless standard plugins to save startup time
 -- these features have been better covered by plugins
 vim.g.loaded_matchparen        = 1
--- vim.g.loaded_matchit           = 1
+vim.g.loaded_matchit           = 1
 vim.g.loaded_logiPat           = 1
 vim.g.loaded_rrhelper          = 1
 vim.g.loaded_tarPlugin         = 1
@@ -46,7 +49,7 @@ vim.g.loaded_nvim_tree         = 1
 require("core.theme")
 
 -- require('image').setup {
--- 	min_padding = 5,
+-- min_padding = 5,
 -- show_label = true,
 -- render_using_dither = true,
 -- }
@@ -69,3 +72,5 @@ require("configs.tele").config()
 require("configs.lspstyle").config()
 require("configs.format").config()
 require("configs.autotag").config()
+-- require("configs.leap").config()
+require("configs.tabout").config()

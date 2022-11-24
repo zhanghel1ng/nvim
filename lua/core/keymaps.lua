@@ -2,7 +2,15 @@ vim.g.mapleader = " "
 
 vim.keymap.set("i", "jj", "<ESC>")
 vim.keymap.set("n", "<leader>wc", "<c-w>c")
-
+-- Split window
+vim.keymap.set('n', 'ss', ':split<Return><C-w>w')
+vim.keymap.set('n', 'sv', ':vsplit<Return><C-w>w')
+-- Move window
+-- keymap.set('n', '<Space>', '<C-w>w')
+vim.keymap.set('', 'sh', '<C-w>h')
+vim.keymap.set('', 'sk', '<C-w>k')
+vim.keymap.set('', 'sj', '<C-w>j')
+vim.keymap.set('', 'sl', '<C-w>l')
 -- window resize
 vim.keymap.set("n", "<a-9>", "<c-w><")
 vim.keymap.set("n", "<a-0>", "<c-w>>")
@@ -56,8 +64,8 @@ vim.keymap.set("n", "<leader>th", ":ToggleTerm direction=horizontal<cr>")
 vim.keymap.set("n", "<leader>tv", ":ToggleTerm direction=vertical<cr>")
 
 -- bufferline
-vim.keymap.set("n", "<Tab>", "<cmd>BufferLineCycleNext<cr>")
-vim.keymap.set("n", "<S-Tab>", "<cmd>BufferLineCyclePrev<cr>")
+vim.keymap.set("n", "<f2>", "<cmd>BufferLineCycleNext<cr>")
+vim.keymap.set("n", "<S-f2>", "<cmd>BufferLineCyclePrev<cr>")
 -- h: git
 -- vim.keymap.set('n', '<leader>hu', ':Gitsigns undo_stage_hunk<cr>')
 -- vim.keymap.set('n', '<leader>hn', ':Gitsigns next_hunk<cr>')
@@ -126,7 +134,10 @@ end, { desc = "Previous todo comment" })
 -- format
 vim.keymap.set("n", "<leader>fm", "<cmd>Format<CR>")
 -- java
-vim.keymap.set("n", "<A-o>", function()
+vim.keymap.set("n", "gs", function()
+    require("jdtls").super_implementation()
+end)
+vim.keymap.set("n", "<A-S-o>", function()
     require("jdtls").organize_imports()
 end)
 vim.keymap.set("n", "crv", function()

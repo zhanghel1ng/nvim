@@ -9,18 +9,7 @@ function M.config()
         cmd = {
             "xvfb-run",
             "racket",
-            "-l",
-            "racket-langserver"
-        }
-    })
-    require 'lspconfig'.html.setup({
-        cmd = { mason_lsp .. "vscode-html-language-server", "--stdio" }
-    })
-    require 'lspconfig'.pyright.setup({
-        cmd = {
-            mason_lsp .. "pyright-langserver",
-            "--stdio"
-        }
+            "-l", "racket-langserver" } }) require 'lspconfig'.html.setup({ cmd = { mason_lsp .. "vscode-html-language-server", "--stdio" } }) require 'lspconfig'.pyright.setup({ cmd = { mason_lsp .. "pyright-langserver", "--stdio" }
     })
 
     require 'lspconfig'.sumneko_lua.setup {}
@@ -237,6 +226,11 @@ function M.config()
                 vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
             end,
         },
+        tools = {
+            inlay_hints = {
+                other_hints_prefix = " "
+            }
+        }
     })
     require('rust-tools').inlay_hints.enable()
     require('nvim-autopairs').setup({
@@ -254,6 +248,7 @@ function M.config()
         }
     })
     vim.lsp.set_log_level('warn')
+    -- require('configs.lsp.go-lsp').config()
 end
 
 return M
