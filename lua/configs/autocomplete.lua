@@ -227,9 +227,9 @@ function M.config()
             end,
         },
         tools = {
-            inlay_hints = {
-                other_hints_prefix = " "
-            }
+            -- inlay_hints = {
+            --     other_hints_prefix = " "
+            -- }
         }
     })
     require('rust-tools').inlay_hints.enable()

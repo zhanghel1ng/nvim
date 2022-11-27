@@ -6,13 +6,13 @@
 -- vim.cmd('colorscheme tender')
 --  sonokai
 -- nord
--- vim.g.nord_contrast                = false
--- vim.g.nord_borders                 = false
--- vim.g.nord_disable_background      = false
--- vim.g.nord_italic                  = false
--- vim.g.nord_uniform_diff_background = true
--- vim.g.cursorline_transparent       = true
--- require('nord').set()
+vim.g.nord_contrast                = false
+vim.g.nord_borders                 = false
+vim.g.nord_disable_background      = false
+vim.g.nord_italic                  = false
+vim.g.nord_uniform_diff_background = true
+vim.g.cursorline_transparent       = true
+require('nord').set()
 -- vim.cmd('colorscheme nord')
 -- local hours                        = os.date("%H")
 -- local hour                         = tonumber(hours)
@@ -27,7 +27,7 @@
 -- vim.cmd('colorscheme habamax')
 -- vim.cmd('colorscheme edge')
 require("transparent").setup({
-    enable = true, -- boolean: enable transparent
+    enable = false, -- boolean: enable transparent
     extra_groups = { -- table/string: additional groups that should be cleared
         -- In particular, when you set it to 'all', that means all available groups
 
@@ -56,6 +56,8 @@ require("transparent").setup({
 -- }
 -- everforest
 -- vim.cmd('set background=light')
+-- dracula
+vim.g.dracula_italic = 0
 vim.g.everforest_sign_column_background = 'none'
 vim.g.everforest_disable_italic_comment = 1
 -- vim.g.everforest_background = 'hard'

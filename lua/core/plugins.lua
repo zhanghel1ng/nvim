@@ -63,7 +63,7 @@ return require('packer').startup(function()
             'nvim-lua/plenary.nvim'
         }
     }
-    use { "nvim-telescope/telescope-file-browser.nvim" }
+    -- use { "nvim-telescope/telescope-file-browser.nvim" }
     -- floating terminal
     use 'akinsho/toggleterm.nvim'
 
