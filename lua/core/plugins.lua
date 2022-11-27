@@ -72,7 +72,7 @@ return require('packer').startup(function()
 
     -- nvim treesitter
     use 'nvim-treesitter/nvim-treesitter'
-
+    use 'nvim-treesitter/nvim-treesitter-textobjects'
     use 'windwp/nvim-ts-autotag'
     -- git
     use {
