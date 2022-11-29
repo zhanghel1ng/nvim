@@ -1,18 +1,27 @@
 local M = {}
 
 function M.config()
+
     local mason_lsp = '/home/zhang/.local/share/nvim/mason/bin/'
+
     require 'lspconfig'.gopls.setup({
         single_file_support = true
     })
+
     require 'lspconfig'.racket_langserver.setup({
         cmd = {
             "xvfb-run",
             "racket",
-            "-l", "racket-langserver" } }) require 'lspconfig'.html.setup({ cmd = { mason_lsp .. "vscode-html-language-server", "--stdio" } }) require 'lspconfig'.pyright.setup({ cmd = { mason_lsp .. "pyright-langserver", "--stdio" }
+            "-l", "racket-langserver"
+        }
     })
 
+    require 'lspconfig'.html.setup({ cmd = { mason_lsp .. "vscode-html-language-server", "--stdio" } })
+
+    require 'lspconfig'.pyright.setup({ cmd = { mason_lsp .. "pyright-langserver", "--stdio" } })
+
     require 'lspconfig'.sumneko_lua.setup {}
+
     require('lspkind').init({
         -- DEPRECATED (use mode instead): enables text annotations
         --
@@ -62,6 +71,7 @@ function M.config()
             TypeParameter = ""
         },
     })
+
     local lspkind = require('lspkind')
     -- Setup nvim-cmp.
     --
@@ -127,6 +137,7 @@ function M.config()
             { name = 'buffer' }
         }
     })
+
     cmp.setup.cmdline(':', {
         sources = cmp.config.sources({
             { name = 'path' }
