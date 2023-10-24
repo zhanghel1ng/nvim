@@ -1,14 +1,13 @@
 local M = {}
 
 function M.config()
-
     local mason_lsp = '/home/zhang/.local/share/nvim/mason/bin/'
-
-    require 'lspconfig'.gopls.setup({
+    local lsp = require 'lspconfig'
+    lsp.gopls.setup({
         single_file_support = true
     })
 
-    require 'lspconfig'.racket_langserver.setup({
+    lsp.racket_langserver.setup({
         cmd = {
             "xvfb-run",
             "racket",
@@ -16,11 +15,66 @@ function M.config()
         }
     })
 
-    require 'lspconfig'.html.setup({ cmd = { mason_lsp .. "vscode-html-language-server", "--stdio" } })
+    lsp.html.setup({
+        cmd = { mason_lsp .. "vscode-html-language-server", "--stdio" },
+    })
+    local capabilities = vim.lsp.protocol.make_client_capabilities()
+    capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-    require 'lspconfig'.pyright.setup({ cmd = { mason_lsp .. "pyright-langserver", "--stdio" } })
+    require 'lspconfig'.cssls.setup {
+        capabilities = capabilities,
+    }
 
-    require 'lspconfig'.sumneko_lua.setup {}
+    require 'lspconfig'.lua_ls.setup {
+        on_init = function(client)
+            local path = client.workspace_folders[1].name
+            if not vim.loop.fs_stat(path .. '/.luarc.json') and not vim.loop.fs_stat(path .. '/.luarc.jsonc') then
+                client.config.settings = vim.tbl_deep_extend('force', client.config.settings, {
+                    Lua = {
+                        runtime = {
+                            -- Tell the language server which version of Lua you're using
+                            -- (most likely LuaJIT in the case of Neovim)
+                            version = 'LuaJIT'
+                        },
+                        -- Make the server aware of Neovim runtime files
+                        workspace = {
+                            checkThirdParty = false,
+                            library = {
+                                vim.env.VIMRUNTIME
+                                -- "${3rd}/luv/library"
+                                -- "${3rd}/busted/library",
+                            }
+                            -- or pull in all of 'runtimepath'. NOTE: this is a lot slower
+                            -- library = vim.api.nvim_get_runtime_file("", true)
+                        }
+                    }
+                })
+
+                client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
+            end
+            return true
+        end,
+        cmd = { mason_lsp .. "lua-language-server" }
+    }
+
+    lsp.pyright.setup({ cmd = { mason_lsp .. "pyright-langserver", "--stdio" } })
+
+    -- lsp.volar.setup {
+    --     filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json' }
+    --
+    -- }
+
+    lsp.vuels.setup({
+        cmd = { mason_lsp .. "vls" },
+        filetypes = { 'vue' }
+    })
+
+    lsp.tsserver.setup({
+        cmd = { mason_lsp .. "typescript-language-server", "--stdio" },
+    })
+
+
+    -- lsp.sumneko_lua.setup {}
 
     require('lspkind').init({
         -- DEPRECATED (use mode instead): enables text annotations
@@ -43,33 +97,33 @@ function M.config()
         -- override preset symbols
         --
         -- default: {}
-        symbol_map = {
-            Text = "",
-            Method = "",
-            Function = "",
-            Constructor = "",
-            Field = "ﰠ",
-            Variable = "",
-            Class = "ﴯ",
-            Interface = "",
-            Module = "",
-            Property = "ﰠ",
-            Unit = "塞",
-            Value = "",
-            Enum = "",
-            Keyword = "",
-            Snippet = "",
-            Color = "",
-            File = "",
-            Reference = "",
-            Folder = "",
-            EnumMember = "",
-            Constant = "",
-            Struct = "פּ",
-            Event = "",
-            Operator = "",
-            TypeParameter = ""
-        },
+        -- symbol_map = {
+        --     Text = "",
+        --     Method = "",
+        --     Function = "",
+        --     Constructor = "",
+        --     Field = "ﰠ",
+        --     Variable = "",
+        --     Class = "ﴯ",
+        --     Interface = "",
+        --     Module = "",
+        --     Property = "ﰠ",
+        --     Unit = "塞",
+        --     Value = "",
+        --     Enum = "",
+        --     Keyword = "",
+        --     Snippet = "",
+        --     Color = "",
+        --     File = "",
+        --     Reference = "",
+        --     Folder = "",
+        --     EnumMember = "",
+        --     Constant = "",
+        --     Struct = "פּ",
+        --     Event = "",
+        --     Operator = "",
+        --     TypeParameter = ""
+        -- },
     })
 
     local lspkind = require('lspkind')
@@ -112,7 +166,7 @@ function M.config()
         formatting = {
             format = lspkind.cmp_format({
                 with_text = true, -- do not show text alongside icons
-                maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+                maxwidth = 50,    -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
                 before = function(entry, vim_item)
                     -- Source 显示提示来源
                     vim_item.menu = "[" .. string.upper(entry.source.name) .. "]"
@@ -185,12 +239,16 @@ function M.config()
     -- nvim-lspconfig config
     -- List of all pre-configured LSP servers:
     -- github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-    local servers = { 'clangd', 'rust_analyzer', 'sumneko_lua' }
+    local servers = { 'clangd', 'rust_analyzer' }
     for _, lsp in pairs(servers) do
         require('lspconfig')[lsp].setup {
             on_attach = on_attach
         }
     end
+    -- local lsp = lsp
+    -- lsp.clangd.setup{}
+    -- lsp.rust_analyzer.setup{}
+    -- lsp.sumneko_lua.setup{}
 
     local devicons = require('nvim-web-devicons')
     cmp.register_source('devicons', {
@@ -209,7 +267,7 @@ function M.config()
     local saga = require 'lspsaga'
 
     -- use default config
-    saga.init_lsp_saga({
+    saga.setup({
         symbol_in_winbar = {
             in_custom = false,
             enable = false,
@@ -222,7 +280,13 @@ function M.config()
             file_formatter = "",
             click_support = false,
         },
-        code_action_icon = "",
+        ui = {
+            code_action = "󰌵",
+        },
+        devicon = true,
+        outline = {
+            auto_preview = false
+        }
         -- diagnostic_header = { "🙀", "😿", "😾", "😺" },
     })
 

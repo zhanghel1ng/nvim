@@ -72,5 +72,6 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+.lazy-lock.json
 # End of https://www.toptal.com/developers/gitignore/api/linux,macos,windows
 

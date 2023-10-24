@@ -27,13 +27,13 @@ vim.keymap.set("n", "<leader>ee", ":NvimTreeToggle<CR>")
 vim.keymap.set("n", "<leader>ec", ":NvimTreeFocus<CR>")
 
 -- telescope
+-- vim.keymap.set("n", "<leader>ff", function()
+--     require("telescope.builtin").find_files({
+--         no_ignore = false,
+--         hidden = true
+--     })
+-- end) --
 vim.keymap.set("n", "<leader>ff", function()
-    require("telescope.builtin").find_files({
-        no_ignore = false,
-        hidden = true
-    })
-end) --
-vim.keymap.set("n", "<leader>fg", function()
     require("telescope.builtin").git_files({})
 end)
 vim.keymap.set("n", "<leader>fb", function()
@@ -72,7 +72,7 @@ vim.keymap.set("n", "<S-f2>", "<cmd>BufferLineCyclePrev<cr>")
 -- vim.keymap.set('n', '<leader>hc', ':Gitsigns preview_hunk<cr>')
 -- vim.keymap.set('n', '<leader>hr', ':Gitsigns reset_hunk<cr>')
 -- vim.keymap.set('n', '<leader>hR', ':Gitsigns reset_buffer')
--- vim.keymap.set('n', '<leader>hb', ':Gitsigns blame_line<cr>')
+vim.keymap.set('n', '<leader>hb', ':Gitsigns blame_line<cr>')
 -- vim.keymap.set('n', '<leader>hd', ':Gitsigns diffthis<cr>')
 -- vim.keymap.set('n', '<leader>hs', ':<C-U>Gitsigns select_hunk<CR>')
 
@@ -84,18 +84,17 @@ vim.keymap.set("n", "gh", vim.lsp.buf.hover)
 vim.keymap.set("n", "<leader>ld", ":Lspsaga peek_definition<cr>")
 vim.keymap.set("n", "<leader>lr", ":Lspsaga rename<cr>")
 vim.keymap.set("i", "<C-p>", vim.lsp.buf.signature_help)
-vim.keymap.set("n", "<leader>la", vim.lsp.buf.code_action)
 vim.keymap.set("n", "<leader>lf", function()
     vim.lsp.buf.format({ async = true })
 end)
 vim.keymap.set("n", "<leader>lb", ":SymbolsOutline<cr>")
 vim.keymap.set("n", "<leader>la", ":Lspsaga code_action<cr>")
-vim.keymap.set("n", "<leader>lu", ":Lspsaga lsp_finder<cr>")
-vim.keymap.set("n", "<F12>", ":Lspsaga code_action<cr>")
+vim.keymap.set("n", "<leader>lu", ":Lspsaga finder<cr>")
+vim.keymap.set("n", "<f4>", ":Lspsaga outline<cr>")
 -- vim.keymap.set('n', '<leader>it', function() require('rust-tools.inlay_hints').toggle_inlay_hints() end)
 -- vim.keymap.set('n', '<leader>is', function() require('rust-tools.inlay_hints').set_inlay_hints() end)
 -- vim.keymap.set('n', '<leader>id', function() require('rust-tools.inlay_hints').diable_inlay_hints() end)
-vim.keymap.set("n", "<f4>", ":SymbolsOutline<cr>")
+-- vim.keymap.set("n", "<f4>", ":SymbolsOutline<cr>")
 
 vim.keymap.set("n", "gD", vim.lsp.buf.declaration)
 vim.keymap.set("n", "gd", vim.lsp.buf.definition)

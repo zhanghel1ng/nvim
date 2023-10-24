@@ -27,7 +27,6 @@ require('nord').set()
 -- vim.cmd('colorscheme habamax')
 -- vim.cmd('colorscheme edge')
 require("transparent").setup({
-    enable = false, -- boolean: enable transparent
     extra_groups = { -- table/string: additional groups that should be cleared
         -- In particular, when you set it to 'all', that means all available groups
 
@@ -39,7 +38,6 @@ require("transparent").setup({
         -- "BufferLineSeparator",
         -- "BufferLineIndicatorSelected",
     },
-    exclude = {}, -- table: groups you don't want to clear
 })
 
 -- github
@@ -63,11 +61,12 @@ vim.g.everforest_disable_italic_comment = 1
 -- vim.g.everforest_background = 'hard'
 -- vim.g.everforest_transparent_background = 1
 -- vim.cmd("colorscheme everforest")
-vim.g.gruvbox_material_sign_column_background = 'none'
+-- vim.g.gruvbox_material_sign_column_background = 'none'
 vim.g.gruvbox_material_disable_italic_comment = 1
 -- vim.g.gruvbox_material_background = 'soft'
 -- vim.cmd("colorscheme gruvbox-material")
 vim.g.sonokai_sign_column_background = 'none'
 vim.g.sonokai_disable_italic_comment = 1
+vim.g.gruvbox_bold = false
 vim.cmd("colorscheme everforest")
 

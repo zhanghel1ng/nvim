@@ -24,15 +24,39 @@ vim.opt.mouse         = 'a'
 vim.opt.expandtab     = true
 -- vim.opt.autowrite     = false
 vim.opt.formatoptions = ''
+-- vim.opt.pumheight     = 10
 
+--调整弹出菜单高度
+local autocmd         = vim.api.nvim_create_autocmd
+autocmd({ "CmdlineLeave", "VimEnter" }, {
+    callback = function() vim.opt.pumheight = 10 end,
+})
+autocmd("CmdlineEnter", { callback = function() vim.opt.pumheight = 21 end,
+})
 require("core.keymaps")
 --require("core.dvorak")	-- delete this line if you don't like using DVORAK
+
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
+        lazypath,
+    })
+end
+
+vim.opt.rtp:prepend(lazypath)
+
 require("core.plugins")
+
 require("core.gui")
 -- disable some useless standard plugins to save startup time
 -- these features have been better covered by plugins
 vim.g.loaded_matchparen        = 1
-vim.g.loaded_matchit           = 1
+-- vim.g.loaded_matchit           = 9
 vim.g.loaded_logiPat           = 1
 vim.g.loaded_rrhelper          = 1
 vim.g.loaded_tarPlugin         = 1
@@ -63,7 +87,6 @@ require("configs.symbols_outline").config()
 require("configs.statusline").config()
 require("configs.filetree").config()
 require("configs.treesitter").config()
--- require("configs.startscreen").config()
 require("configs.git").config()
 require("configs.bufferline").config()
 require("configs.grammar").config()

@@ -26,4 +26,6 @@ endif
 autocmd FileType markdown setlocal spell
 let g:indentLine_char = ''
 hi DapBreakpoint guifg='#993939'
+hi DiagnosticSignHint guifg = '#FFD700'
+hi NormalFloat guifg = '235'
 " hi LspSagaLightBulb guifg='#FFD700' 
