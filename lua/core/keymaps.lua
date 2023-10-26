@@ -23,8 +23,7 @@ vim.keymap.set("n", "<leader>bp", ":bp<cr>")
 vim.keymap.set("n", "<leader>bd", ":Bdelete<cr>")
 
 -- file tree
-vim.keymap.set("n", "<leader>ee", ":NvimTreeToggle<CR>")
-vim.keymap.set("n", "<leader>ec", ":NvimTreeFocus<CR>")
+vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
 
 -- telescope
 -- vim.keymap.set("n", "<leader>ff", function()
@@ -167,3 +166,4 @@ end)
 vim.keymap.set("n", "<leader>do", function()
     require("dap").step_over()
 end)
+
